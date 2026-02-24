@@ -1,5 +1,6 @@
 import type * as React from 'react'
 import { cn } from '../../lib/cn'
+import { Card } from '../ui/Card'
 import { Container } from './Container'
 
 export function PageHeader({
@@ -16,13 +17,16 @@ export function PageHeader({
   className?: string
 }) {
   return (
-    <header className={cn('border-b border-slate-200/70', className)}>
-      <div className="surface-muted">
-        <Container className="py-14 sm:py-16">
+    <header className={cn('py-10 sm:py-12', className)}>
+      <Container>
+        <Card
+          tone="muted"
+          className="p-6 shadow-apple-sm hover:translate-y-0 hover:shadow-apple sm:p-8"
+        >
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
             <div className="space-y-4">
               {badge ? <div className="animate-fade-in">{badge}</div> : null}
-              <h1 className="animate-fade-up text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              <h1 className="animate-fade-up text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl sm:leading-[1.1]">
                 {title}
               </h1>
               {subtitle ? (
@@ -38,8 +42,8 @@ export function PageHeader({
               </div>
             ) : null}
           </div>
-        </Container>
-      </div>
+        </Card>
+      </Container>
     </header>
   )
 }

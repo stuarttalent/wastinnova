@@ -102,42 +102,53 @@ function FeatureCard({
 export function HomePage() {
   return (
     <div>
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-36 left-1/2 h-[520px] w-[920px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,100,48,0.16),transparent_65%)] blur-2xl" />
-          <div className="absolute -bottom-44 left-1/3 h-[520px] w-[920px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(2,6,23,0.08),transparent_60%)] blur-2xl" />
-        </div>
+      <section className="py-10 sm:py-12">
+        <Container>
+          <Card
+            tone="muted"
+            className="p-6 shadow-apple-sm hover:translate-y-0 hover:shadow-apple sm:p-8"
+          >
+            <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+              <Reveal className="text-left">
+                <div className="flex items-center gap-2">
+                  <Badge tone="brand">WASTiNNOVA Africa</Badge>
+                  <span className="text-sm text-slate-500">Zimbabwe</span>
+                </div>
 
-        <Container className="flex min-h-[72svh] flex-col justify-center py-20 sm:py-24">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <div className="flex items-center justify-center gap-2">
-              <Badge tone="brand">WASTiNNOVA Africa</Badge>
-              <span className="text-sm text-slate-500">Zimbabwe</span>
+                <h1 className="mt-6 text-4xl font-semibold tracking-tight text-slate-900 sm:text-6xl sm:leading-[1.05]">
+                  Waste service that is seamlessly integrated into society
+                </h1>
+                <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
+                  Africa’s benchmark corporate partner for compliant waste,
+                  sterilisation, and environmental solutions.
+                </p>
+
+                <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Link
+                    to="/contact"
+                    className={buttonClassName({ variant: 'primary', size: 'lg' })}
+                  >
+                    Contact Us
+                  </Link>
+                  <Link
+                    to="/technology"
+                    className={buttonClassName({ variant: 'outline', size: 'lg' })}
+                  >
+                    Explore WASTiTRACK
+                  </Link>
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.05} className="hidden lg:block">
+                <Media
+                  src={media.dashboard.src}
+                  alt={media.dashboard.alt}
+                  className="aspect-[16/10] rounded-2xl"
+                  priority
+                />
+              </Reveal>
             </div>
-
-            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-slate-900 sm:text-6xl sm:leading-[1.05]">
-              Waste service that is seamlessly integrated into society
-            </h1>
-            <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
-              Africa’s benchmark corporate partner for compliant waste, sterilisation,
-              and environmental solutions.
-            </p>
-
-            <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row sm:items-center">
-              <Link
-                to="/contact"
-                className={buttonClassName({ variant: 'primary', size: 'lg' })}
-              >
-                Contact Us
-              </Link>
-              <Link
-                to="/technology"
-                className={buttonClassName({ variant: 'outline', size: 'lg' })}
-              >
-                Explore WASTiTRACK
-              </Link>
-            </div>
-          </Reveal>
+          </Card>
         </Container>
       </section>
 

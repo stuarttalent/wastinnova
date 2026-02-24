@@ -43,7 +43,7 @@ export function LogoMark({
         ))}
       </g>
 
-      <g fill="#D68910">
+      <g fill="#006430" opacity="0.55">
         <circle cx="48.5" cy="28" r="2.2" />
         <circle cx="24.5" cy="40" r="2.2" />
       </g>

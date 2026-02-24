@@ -89,10 +89,14 @@ function Metric({
 export function GreenUnitsPage() {
   return (
     <div>
-      <section className="border-b border-slate-200/70">
-        <Container className="py-14 sm:py-16">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <div className="space-y-6">
+      <section className="py-10 sm:py-12">
+        <Container>
+          <Card
+            tone="muted"
+            className="p-6 shadow-apple-sm hover:translate-y-0 hover:shadow-apple sm:p-8"
+          >
+            <div className="grid items-center gap-10 lg:grid-cols-2">
+              <div className="space-y-6">
               <div className="flex flex-wrap items-center gap-2">
                 <Badge tone="brand">Green Units</Badge>
                 <span className="text-sm text-slate-600">
@@ -157,7 +161,8 @@ export function GreenUnitsPage() {
                 </div>
               </Card>
             </div>
-          </div>
+            </div>
+          </Card>
         </Container>
       </section>
 
