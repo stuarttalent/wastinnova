@@ -4,7 +4,9 @@ import { Container } from '../components/layout/Container'
 import { Section } from '../components/layout/Section'
 import { Badge } from '../components/ui/Badge'
 import { Card } from '../components/ui/Card'
+import { Media } from '../components/ui/Media'
 import { buttonClassName } from '../components/ui/buttonStyles'
+import { media } from '../content/media'
 import { cn } from '../lib/cn'
 
 type Service = {
@@ -157,13 +159,19 @@ export function HomePage() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             <Card className="p-6">
+              <Media
+                src={media.dashboard.src}
+                alt={media.dashboard.alt}
+                className="mb-5 aspect-[16/10]"
+                priority
+              />
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                     WASTiTRACK
                   </div>
                   <div className="mt-1 text-sm font-semibold tracking-tight text-slate-900">
-                    Digital compliance dashboard (placeholder)
+                    Digital compliance dashboard
                   </div>
                 </div>
                 <Badge tone="brand" className="shrink-0">
@@ -200,13 +208,18 @@ export function HomePage() {
             </Card>
 
             <Card className="p-6">
+              <Media
+                src={media.controlledFacility.src}
+                alt={media.controlledFacility.alt}
+                className="mb-5 aspect-[16/10]"
+              />
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Infrastructure
                   </div>
                   <div className="mt-1 text-sm font-semibold tracking-tight text-slate-900">
-                    Modular medical incinerator (placeholder)
+                    Controlled treatment infrastructure
                   </div>
                 </div>
                 <Badge tone="safety" className="shrink-0">
@@ -234,12 +247,12 @@ export function HomePage() {
 
               <div className="mt-4 rounded-2xl border border-dashed border-slate-300 bg-white p-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  Imagery guidance
+                  Note
                 </div>
                 <div className="mt-2 text-sm leading-relaxed text-slate-600">
-                  Replace with real project photography: controlled waste handling,
-                  modular incineration units, and in-field healthcare environments
-                  (avoid generic stock).
+                  Stock imagery used for layout only. Replace with real project
+                  photography (controlled handling, modular units, and field operations)
+                  for maximum credibility.
                 </div>
               </div>
             </Card>
@@ -520,6 +533,21 @@ export function HomePage() {
         title="PlayNova: waste is the beginning of regeneration"
         subtitle="Sustainability without greenwashing: measurable diversion, material recovery, and real products that strengthen healthcare and infrastructure environments."
       >
+        <Card className="mb-8 p-6">
+          <Media
+            src={media.recycling.src}
+            alt={media.recycling.alt}
+            className="aspect-[16/9]"
+          />
+          <div className="mt-4 text-sm font-semibold tracking-tight text-slate-900">
+            Circular inputs to circular products
+          </div>
+          <div className="mt-2 text-sm leading-relaxed text-slate-600">
+            Stock imagery representing rubber recovery. Replace with PlayNova
+            production workflows and finished safety products for maximum authenticity.
+          </div>
+        </Card>
+
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {

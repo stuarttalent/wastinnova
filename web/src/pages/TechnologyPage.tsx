@@ -3,7 +3,9 @@ import { PageHeader } from '../components/layout/PageHeader'
 import { Section } from '../components/layout/Section'
 import { Badge } from '../components/ui/Badge'
 import { Card } from '../components/ui/Card'
+import { Media } from '../components/ui/Media'
 import { buttonClassName } from '../components/ui/buttonStyles'
+import { media } from '../content/media'
 
 export function TechnologyPage() {
   return (
@@ -85,15 +87,19 @@ export function TechnologyPage() {
 
             <Card tone="muted" className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
               <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Visual direction (placeholders)
+                Visual direction (stock imagery)
               </div>
               <div className="mt-4 space-y-3 text-sm text-slate-600">
-                <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-4">
-                  Dashboard imagery: compliance KPIs, manifest status, exception queue.
-                </div>
-                <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-4">
-                  Field imagery: scanned manifests, GPS trace, controlled handling.
-                </div>
+                <Media
+                  src={media.dashboard.src}
+                  alt={media.dashboard.alt}
+                  className="aspect-[16/9]"
+                />
+                <Media
+                  src={media.gps.src}
+                  alt={media.gps.alt}
+                  className="aspect-[16/9]"
+                />
               </div>
               <div className="mt-5">
                 <Link
