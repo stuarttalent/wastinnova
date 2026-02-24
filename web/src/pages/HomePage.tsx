@@ -20,7 +20,7 @@ const services: Service[] = [
   {
     name: 'Waste Services',
     description:
-      'GPS-tracked logistics with WASTiTRACK digital manifests for end-to-end traceability.',
+      'Disposal of specialized waste including Healthcare, Confidential, Construction, Chemical. Methods include incineration, neutralization and sterilization',
     pricingModel: 'Subscription',
     highlight: 'Digital manifests • Chain-of-custody',
   },

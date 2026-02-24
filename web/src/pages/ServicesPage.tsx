@@ -10,9 +10,9 @@ const businessUnits = [
     name: 'Waste Services',
     pricing: 'Subscription',
     bullets: [
-      'GPS-tracked logistics',
-      'WASTiTRACK digital manifests',
-      'Chain-of-custody visibility',
+      'Specialized waste disposal (healthcare, confidential, construction, chemical)',
+      'Incineration, neutralization, and sterilization methods',
+      'Structured handling and controlled workflows',
     ],
   },
   {
