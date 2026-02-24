@@ -38,5 +38,10 @@ export const media = {
     src: 'https://unsplash.com/photos/KEaZffWNhyM/download?force=true',
     alt: 'Recovered tires representing circular economy inputs',
   },
+  greenUnitsKiosk: {
+    // Urban recycling bins / station (stock) — stand-in for kiosk in community context
+    src: 'https://unsplash.com/photos/eF8Iu0GrLSs/download?force=true',
+    alt: 'Urban recycling station representing a community Green Unit kiosk',
+  },
 } satisfies Record<string, MediaAsset>
 

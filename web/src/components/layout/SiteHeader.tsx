@@ -8,6 +8,7 @@ import { Container } from './Container'
 const navItems: Array<{ to: string; label: string }> = [
   { to: '/', label: 'Home' },
   { to: '/services', label: 'Services' },
+  { to: '/green-units', label: 'Green Units' },
   { to: '/compliance', label: 'Compliance' },
   { to: '/technology', label: 'Technology' },
   { to: '/contact', label: 'Contact' },

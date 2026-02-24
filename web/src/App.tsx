@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { SiteLayout } from './components/layout/SiteLayout'
 import { CompliancePage } from './pages/CompliancePage'
 import { ContactPage } from './pages/ContactPage'
+import { GreenUnitsPage } from './pages/GreenUnitsPage'
 import { HomePage } from './pages/HomePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { ServicesPage } from './pages/ServicesPage'
@@ -15,6 +16,7 @@ export default function App() {
         <Route element={<SiteLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/green-units" element={<GreenUnitsPage />} />
           <Route path="/compliance" element={<CompliancePage />} />
           <Route path="/technology" element={<TechnologyPage />} />
           <Route path="/technology/demo" element={<TechnologyDemoPage />} />

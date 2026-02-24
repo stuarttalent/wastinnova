@@ -11,6 +11,7 @@ const interests = [
   'Waste Services (GPS + manifests)',
   'Incinerator manufacturing',
   'Medical waste compliance (audits, SOPs, training)',
+  'Green Units (community recycling kiosks)',
   'PlayNova (recycling)',
   'Sterilisation services',
   'Document destruction',
@@ -51,10 +52,13 @@ function Field({
 export function ContactPage() {
   const [searchParams] = useSearchParams()
   const intent = searchParams.get('intent')
+  const mode = searchParams.get('mode')
 
   const defaultMessage =
     intent === 'credentials'
       ? 'Please share corporate credentials and references for procurement diligence.'
+      : intent === 'green-units'
+        ? `I would like to discuss Green Units (${mode ?? 'general inquiry'}): partnership, hosting, or support options. Please share next steps and requirements.`
       : ''
 
   const [submitted, setSubmitted] = React.useState(false)
@@ -73,8 +77,12 @@ export function ContactPage() {
     setForm((prev) => ({
       ...prev,
       message: prev.message || defaultMessage,
+      interest:
+        intent === 'green-units'
+          ? ('Green Units (community recycling kiosks)' as Interest)
+          : prev.interest,
     }))
-  }, [defaultMessage])
+  }, [defaultMessage, intent])
 
   return (
     <div>

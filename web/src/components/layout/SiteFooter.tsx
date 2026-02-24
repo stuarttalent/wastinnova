@@ -38,6 +38,12 @@ export function SiteFooter() {
             </Link>
             <Link
               className="text-slate-700 hover:text-slate-900"
+              to="/green-units"
+            >
+              Green Units
+            </Link>
+            <Link
+              className="text-slate-700 hover:text-slate-900"
               to="/compliance"
             >
               Compliance
