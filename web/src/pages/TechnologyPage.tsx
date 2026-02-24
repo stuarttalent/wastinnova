@@ -1,22 +1,19 @@
 import { Link } from 'react-router-dom'
+import { PageHeader } from '../components/layout/PageHeader'
+import { Section } from '../components/layout/Section'
 import { Badge } from '../components/ui/Badge'
+import { Card } from '../components/ui/Card'
 import { buttonClassName } from '../components/ui/buttonStyles'
 
 export function TechnologyPage() {
   return (
     <div>
-      <section className="border-b border-slate-200 bg-slate-50/70">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-          <Badge tone="brand">Technology</Badge>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-            WASTiTRACK: the digital backbone of compliance
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-            Digital manifests, GPS tracking, audit-ready records, and operational
-            transparency—built to strengthen governance across waste, sterilisation,
-            and environmental services.
-          </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+      <PageHeader
+        badge={<Badge tone="brand">Technology</Badge>}
+        title="WASTiTRACK: the digital backbone of compliance"
+        subtitle="Digital manifests, GPS tracking, audit-ready records, and operational transparency—built to strengthen governance across waste, sterilisation, and environmental services."
+        actions={
+          <>
             <Link
               to="/technology/demo"
               className={buttonClassName({ variant: 'primary', size: 'lg' })}
@@ -29,12 +26,15 @@ export function TechnologyPage() {
             >
               Request corporate credentials
             </Link>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <Section
+        eyebrow="Technology value"
+        title="Traceability that strengthens governance"
+        subtitle="Designed to reduce ambiguity and make compliance visible, verifiable, and exportable."
+      >
           <div className="grid gap-6 md:grid-cols-2">
             {[
               {
@@ -54,22 +54,19 @@ export function TechnologyPage() {
                 v: 'Exceptions, incidents, and corrective actions recorded as part of delivery.',
               },
             ].map((f) => (
-              <div
-                key={f.k}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft"
-              >
+              <Card key={f.k} className="p-6">
                 <div className="text-sm font-semibold tracking-tight text-slate-900">
                   {f.k}
                 </div>
                 <div className="mt-2 text-sm leading-relaxed text-slate-600">
                   {f.v}
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <Card className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
               <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Governance value
               </div>
@@ -84,9 +81,9 @@ export function TechnologyPage() {
                   teams, and regions.
                 </p>
               </div>
-            </div>
+            </Card>
 
-            <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 shadow-sm">
+            <Card tone="muted" className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
               <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Visual direction (placeholders)
               </div>
@@ -106,10 +103,9 @@ export function TechnologyPage() {
                   Open demo manifest view
                 </Link>
               </div>
-            </div>
+            </Card>
           </div>
-        </div>
-      </section>
+      </Section>
     </div>
   )
 }

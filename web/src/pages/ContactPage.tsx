@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { PageHeader } from '../components/layout/PageHeader'
+import { Section } from '../components/layout/Section'
 import { Badge } from '../components/ui/Badge'
+import { Card } from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import { buttonClassName } from '../components/ui/buttonStyles'
 
@@ -75,23 +78,16 @@ export function ContactPage() {
 
   return (
     <div>
-      <section className="border-b border-slate-200 bg-slate-50/70">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-          <Badge tone="brand">Contact</Badge>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-            Corporate enquiries and compliance-led onboarding
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-            Use this form to request corporate credentials and references, schedule a
-            site assessment, or discuss an integrated multi-site programme.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        badge={<Badge tone="brand">Contact</Badge>}
+        title="Corporate enquiries and compliance-led onboarding"
+        subtitle="Use this form to request corporate credentials and references, schedule a site assessment, or discuss an integrated multi-site programme."
+      />
 
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-3">
+      <Section>
+        <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <Card className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
               <div className="text-sm font-semibold tracking-tight text-slate-900">
                 Request form
               </div>
@@ -219,11 +215,11 @@ export function ContactPage() {
                   </div>
                 </form>
               )}
-            </div>
+            </Card>
           </div>
 
           <aside className="space-y-6">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <Card className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
               <div className="text-sm font-semibold tracking-tight text-slate-900">
                 What to expect
               </div>
@@ -239,9 +235,9 @@ export function ContactPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Card>
 
-            <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 shadow-sm">
+            <Card tone="muted" className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
               <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Placeholder contact
               </div>
@@ -271,10 +267,10 @@ export function ContactPage() {
                 Update this email address to the official corporate channel before
                 launch.
               </div>
-            </div>
+            </Card>
           </aside>
         </div>
-      </section>
+      </Section>
     </div>
   )
 }

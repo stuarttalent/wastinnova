@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 import { LogoMark } from '../LogoMark'
+import { Container } from './Container'
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <footer className="border-t border-slate-200/70 bg-white/70">
+      <div className="glass">
+        <Container className="py-12">
         <div className="grid gap-10 md:grid-cols-3">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <LogoMark />
+              <LogoMark className="h-9 w-9" />
               <div>
                 <div className="text-sm font-semibold tracking-tight">
                   WASTiNNOVA Africa
@@ -71,10 +73,13 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <div>© {new Date().getFullYear()} WASTiNNOVA Africa. All rights reserved.</div>
+        <div className="mt-10 flex flex-col gap-2 border-t border-slate-200/70 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            © {new Date().getFullYear()} WASTiNNOVA Africa. All rights reserved.
+          </div>
           <div>Safety first. Compliance by design. Innovation with purpose.</div>
         </div>
+        </Container>
       </div>
     </footer>
   )

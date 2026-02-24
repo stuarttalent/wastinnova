@@ -1,6 +1,9 @@
-import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import type { ReactNode } from 'react'
+import { Container } from '../components/layout/Container'
+import { Section } from '../components/layout/Section'
 import { Badge } from '../components/ui/Badge'
+import { Card } from '../components/ui/Card'
 import { buttonClassName } from '../components/ui/buttonStyles'
 import { cn } from '../lib/cn'
 
@@ -55,52 +58,6 @@ const services: Service[] = [
   },
 ]
 
-function Section({
-  id,
-  eyebrow,
-  title,
-  subtitle,
-  children,
-  tone = 'default',
-}: {
-  id?: string
-  eyebrow?: string
-  title: string
-  subtitle?: string
-  children: ReactNode
-  tone?: 'default' | 'muted'
-}) {
-  return (
-    <section
-      id={id}
-      className={cn(
-        'scroll-mt-24 py-16 sm:py-20',
-        tone === 'muted' && 'bg-slate-50/70',
-      )}
-    >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-2xl">
-          {eyebrow ? (
-            <div className="text-xs font-semibold uppercase tracking-wider text-brand-700">
-              {eyebrow}
-            </div>
-          ) : null}
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            {title}
-          </h2>
-          {subtitle ? (
-            <p className="mt-3 text-base leading-relaxed text-slate-600">
-              {subtitle}
-            </p>
-          ) : null}
-        </div>
-
-        <div className="mt-10">{children}</div>
-      </div>
-    </section>
-  )
-}
-
 function FeatureCard({
   title,
   description,
@@ -111,7 +68,7 @@ function FeatureCard({
   icon: ReactNode
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+    <Card className="p-6">
       <div className="flex items-start gap-4">
         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-100">
           {icon}
@@ -125,7 +82,7 @@ function FeatureCard({
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }
 
@@ -156,8 +113,8 @@ export function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,100,48,0.10),transparent_60%)]" />
         <div className="absolute inset-y-0 right-0 hidden w-[45%] bg-[linear-gradient(to_left,rgba(2,6,23,0.03),transparent)] md:block" />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:py-20 sm:px-6 md:grid-cols-2">
-          <div className="space-y-6">
+        <Container className="relative grid items-center gap-10 py-16 sm:py-20 md:grid-cols-2">
+          <div className="animate-fade-up space-y-6">
             <Badge tone="brand">Safety first. Compliance by design.</Badge>
             <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
               Engineering Safety. Delivering Compliance. Innovating Sustainably.
@@ -182,27 +139,27 @@ export function HomePage() {
             </div>
 
             <div className="grid gap-3 pt-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <Card className="rounded-2xl p-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Operating model
                 </div>
                 <div className="mt-2 text-sm font-medium text-slate-900">
                   Always audit-ready, SOP-driven operations
                 </div>
-              </div>
-              <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              </Card>
+              <Card className="rounded-2xl p-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Partner promise
                 </div>
                 <div className="mt-2 text-sm font-medium text-slate-900">
                   Long-term governance, not transactional supply
                 </div>
-              </div>
+              </Card>
             </div>
           </div>
 
-          <div className="grid gap-4">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+          <div className="animate-fade-up grid gap-4 [animation-delay:80ms]">
+            <Card className="p-6">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
@@ -224,14 +181,16 @@ export function HomePage() {
                   ['SOP coverage', 'Validated', 'bg-slate-50 text-slate-800'],
                   ['Exceptions', '0 pending', 'bg-safety-50 text-safety-900'],
                 ].map(([k, v, tone]) => (
-                  <div
-                    key={k}
-                    className="rounded-2xl border border-slate-200 bg-white p-4"
-                  >
+                  <div key={k} className="rounded-2xl border border-slate-200/80 bg-white p-4">
                     <div className="text-xs font-medium text-slate-500">{k}</div>
                     <div className="mt-2 flex items-center justify-between">
                       <div className="text-sm font-semibold text-slate-900">{v}</div>
-                      <span className={cn('rounded-full px-2 py-1 text-[11px] font-medium', tone)}>
+                      <span
+                        className={cn(
+                          'rounded-full px-2 py-1 text-[11px] font-medium',
+                          tone,
+                        )}
+                      >
                         Status
                       </span>
                     </div>
@@ -258,9 +217,9 @@ export function HomePage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Card>
 
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+            <Card className="p-6">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
@@ -301,9 +260,9 @@ export function HomePage() {
                   (avoid generic stock).
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
-        </div>
+        </Container>
       </section>
 
       <Section
@@ -339,23 +298,23 @@ export function HomePage() {
         subtitle="Safety first. Compliance by design. Innovation with purpose."
       >
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <Card className="p-6">
             <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
               Vision
             </div>
             <div className="mt-3 text-lg font-semibold tracking-tight text-slate-900">
               A waste service seamlessly integrated into society.
             </div>
-          </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          </Card>
+          <Card className="p-6">
             <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
               Mission
             </div>
             <div className="mt-3 text-lg font-semibold tracking-tight text-slate-900">
               To simplify lives and save the world.
             </div>
-          </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          </Card>
+          <Card className="p-6">
             <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
               Value proposition
             </div>
@@ -365,7 +324,7 @@ export function HomePage() {
               make waste management simple, reliable, and hassle-free for our
               partners.
             </div>
-          </div>
+          </Card>
         </div>
       </Section>
 
@@ -377,9 +336,9 @@ export function HomePage() {
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <div
+            <Card
               key={service.name}
-              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft"
+              className="group relative overflow-hidden p-6"
             >
               <div className="text-sm font-semibold tracking-tight text-slate-900">
                 {service.name}
@@ -401,7 +360,7 @@ export function HomePage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
 
@@ -449,12 +408,9 @@ export function HomePage() {
                 tone: 'border-slate-200 bg-white',
               },
             ].map((row, idx) => (
-              <div
+              <Card
                 key={row.k}
-                className={cn(
-                  'relative rounded-2xl border p-5 shadow-sm',
-                  row.tone,
-                )}
+                className={cn('relative p-5 hover:translate-y-0 hover:shadow-apple-sm', row.tone)}
                 style={{ transform: `translateX(${idx * 6}px)` }}
               >
                 <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
@@ -463,11 +419,11 @@ export function HomePage() {
                 <div className="mt-2 text-sm font-semibold tracking-tight text-slate-900">
                   {row.v}
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+          <Card className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
             <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
               Outcome focus
             </div>
@@ -482,7 +438,7 @@ export function HomePage() {
                 to audit, and ready for scale.
               </p>
             </div>
-          </div>
+          </Card>
         </div>
       </Section>
 
@@ -492,7 +448,7 @@ export function HomePage() {
         title="Service maturity that regulators and executives can trust"
         subtitle="A clear maturity gap exists between governance-led operators and informal services. We close that gap with traceability, standards, and structured operations."
       >
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+        <Card className="overflow-hidden p-0 hover:translate-y-0 hover:shadow-apple-sm">
           <div className="grid grid-cols-4 bg-slate-50 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
             <div className="col-span-2">Provider category</div>
             <div>Service maturity</div>
@@ -548,7 +504,7 @@ export function HomePage() {
               <div className="text-sm text-slate-600">{row.traits}</div>
             </div>
           ))}
-        </div>
+        </Card>
       </Section>
 
       <Section
@@ -573,9 +529,9 @@ export function HomePage() {
               v: 'Rubber recycling into safety mats and tiles for high-traffic environments.',
             },
           ].map((c) => (
-            <div
+            <Card
               key={c.k}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              className="p-6"
             >
               <div className="text-sm font-semibold tracking-tight text-slate-900">
                 {c.k}
@@ -583,18 +539,18 @@ export function HomePage() {
               <div className="mt-2 text-sm leading-relaxed text-slate-600">
                 {c.v}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <Card className="mt-10 p-6 hover:translate-y-0 hover:shadow-apple-sm">
           <div className="text-sm font-semibold tracking-tight text-slate-900">
             Narrative focus
           </div>
           <p className="mt-2 text-sm leading-relaxed text-slate-600">
             Waste is not the end of value—it is the beginning of regeneration.
           </p>
-        </div>
+        </Card>
       </Section>
 
       <Section
@@ -604,7 +560,7 @@ export function HomePage() {
         subtitle="We treat compliance as a built-in feature: standards-informed, operationalised through SOPs, and made transparent through digital records."
       >
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <Card className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
             <div className="flex flex-wrap gap-2">
               <Badge tone="brand">WHO-aligned standards</Badge>
               <Badge>National regulatory readiness</Badge>
@@ -632,9 +588,9 @@ export function HomePage() {
                 </span>
               </div>
             </div>
-          </div>
+          </Card>
 
-          <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 shadow-sm">
+          <Card tone="muted" className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
             <div className="text-sm font-semibold tracking-tight text-slate-900">
               Corporate assurance
             </div>
@@ -657,7 +613,7 @@ export function HomePage() {
                 View compliance approach
               </Link>
             </div>
-          </div>
+          </Card>
         </div>
       </Section>
     </div>

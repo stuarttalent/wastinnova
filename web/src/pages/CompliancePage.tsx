@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import { PageHeader } from '../components/layout/PageHeader'
+import { Section } from '../components/layout/Section'
 import { Badge } from '../components/ui/Badge'
+import { Card } from '../components/ui/Card'
 import { buttonClassName } from '../components/ui/buttonStyles'
 
 function Icon({ d }: { d: string }) {
@@ -21,18 +24,18 @@ function Icon({ d }: { d: string }) {
 export function CompliancePage() {
   return (
     <div>
-      <section className="border-b border-slate-200 bg-slate-50/70">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-          <Badge tone="brand">Compliance positioning</Badge>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-            Compliance is built in—not bolted on
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+      <PageHeader
+        badge={<Badge tone="brand">Compliance positioning</Badge>}
+        title="Compliance is built in—not bolted on"
+        subtitle={
+          <>
             We align operations with national regulations and WHO-aligned standards,
             then operationalise compliance through SOPs, training, traceability, and
             audit-ready records.
-          </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          </>
+        }
+        actions={
+          <>
             <Link
               to="/contact?intent=credentials"
               className={buttonClassName({ variant: 'primary', size: 'lg' })}
@@ -45,12 +48,15 @@ export function CompliancePage() {
             >
               See WASTiTRACK audit trail
             </Link>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <Section
+        eyebrow="Built-in compliance"
+        title="Standards, documentation, and traceability—operationalised"
+        subtitle="A compliance posture designed for healthcare environments, procurement diligence, and regulator review."
+      >
           <div className="grid gap-6 md:grid-cols-2">
             {[
               {
@@ -74,10 +80,7 @@ export function CompliancePage() {
                 icon: <Icon d="M4 7h16M4 12h10M4 17h16" />,
               },
             ].map((c) => (
-              <div
-                key={c.title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft"
-              >
+              <Card key={c.title} className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-100">
                     {c.icon}
@@ -91,12 +94,12 @@ export function CompliancePage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <Card className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
               <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Compliance outputs
               </div>
@@ -113,9 +116,9 @@ export function CompliancePage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Card>
 
-            <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 shadow-sm">
+            <Card tone="muted" className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
               <div className="text-sm font-semibold tracking-tight text-slate-900">
                 Procurement and governance support
               </div>
@@ -138,10 +141,9 @@ export function CompliancePage() {
                   See integrated services
                 </Link>
               </div>
-            </div>
+            </Card>
           </div>
-        </div>
-      </section>
+      </Section>
     </div>
   )
 }

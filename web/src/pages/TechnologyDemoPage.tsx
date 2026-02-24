@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
+import { PageHeader } from '../components/layout/PageHeader'
+import { Section } from '../components/layout/Section'
 import { Badge } from '../components/ui/Badge'
+import { Card } from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import { buttonClassName } from '../components/ui/buttonStyles'
 
@@ -24,12 +27,12 @@ const manifest = {
 
 function KeyValue({ k, v }: { k: string; v: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4">
+    <Card className="rounded-2xl p-4 shadow-none hover:translate-y-0 hover:shadow-none">
       <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
         {k}
       </div>
       <div className="mt-2 text-sm font-semibold text-slate-900">{v}</div>
-    </div>
+    </Card>
   )
 }
 
@@ -38,56 +41,50 @@ export function TechnologyDemoPage() {
 
   return (
     <div>
-      <section className="border-b border-slate-200 bg-slate-50/70">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div className="space-y-3">
-              <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Technology • Demo view
-              </div>
-              <h1 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                Digital manifest (mock)
-              </h1>
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge tone="brand">WASTiTRACK</Badge>
-                <Badge>{manifest.status}</Badge>
-                <span className="text-sm text-slate-600">
-                  Manifest ID:{' '}
-                  <span className="font-medium text-slate-900">{manifest.id}</span>
-                </span>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                to="/technology"
-                className={buttonClassName({ variant: 'outline', size: 'md' })}
-              >
-                Back to Technology
-              </Link>
-              <Button
-                type="button"
-                variant="secondary"
-                size="md"
-                onClick={() => window.print()}
-              >
-                Print / Save PDF
-              </Button>
-            </div>
+      <PageHeader
+        badge={
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge tone="brand">WASTiTRACK</Badge>
+            <Badge>{manifest.status}</Badge>
+            <span className="text-sm text-slate-600">
+              Manifest ID:{' '}
+              <span className="font-medium text-slate-900">{manifest.id}</span>
+            </span>
           </div>
+        }
+        title="Digital manifest (mock)"
+        subtitle="Technology • Demo view"
+        actions={
+          <>
+            <Link
+              to="/technology"
+              className={buttonClassName({ variant: 'outline', size: 'md' })}
+            >
+              Back to Technology
+            </Link>
+            <Button
+              type="button"
+              variant="secondary"
+              size="md"
+              onClick={() => window.print()}
+            >
+              Print / Save PDF
+            </Button>
+          </>
+        }
+      />
 
-          <div className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-white p-4 text-sm text-slate-600">
+      <Section className="py-12 sm:py-14">
+        <Card className="mb-6 p-4 shadow-none hover:translate-y-0 hover:shadow-none">
+          <div className="text-sm text-slate-600">
             This is a mock view for demonstration only. Replace with a real WASTiTRACK
             screenshot or interactive demo when available.
           </div>
-        </div>
-      </section>
+        </Card>
 
-      <section className="py-12 sm:py-14">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2">
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <Card className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="text-sm font-semibold tracking-tight text-slate-900">
                     Chain-of-custody details
@@ -142,9 +139,9 @@ export function TechnologyDemoPage() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Card>
 
-              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <Card className="mt-6 p-6 hover:translate-y-0 hover:shadow-apple-sm">
                 <div className="text-sm font-semibold tracking-tight text-slate-900">
                   GPS event trail (mock)
                 </div>
@@ -163,11 +160,11 @@ export function TechnologyDemoPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Card>
             </div>
 
             <aside className="space-y-6">
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <Card className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
                 <div className="text-sm font-semibold tracking-tight text-slate-900">
                   Audit readiness
                 </div>
@@ -184,9 +181,9 @@ export function TechnologyDemoPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Card>
 
-              <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 shadow-sm">
+              <Card tone="muted" className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
                 <div className="text-sm font-semibold tracking-tight text-slate-900">
                   Next step
                 </div>
@@ -208,11 +205,10 @@ export function TechnologyDemoPage() {
                     View services
                   </Link>
                 </div>
-              </div>
+              </Card>
             </aside>
           </div>
-        </div>
-      </section>
+      </Section>
     </div>
   )
 }

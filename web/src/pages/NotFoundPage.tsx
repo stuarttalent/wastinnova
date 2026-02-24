@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
+import { Section } from '../components/layout/Section'
+import { Card } from '../components/ui/Card'
 import { buttonClassName } from '../components/ui/buttonStyles'
 
 export function NotFoundPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <div className="max-w-xl">
+    <Section>
+      <Card className="max-w-xl p-8 hover:translate-y-0 hover:shadow-apple-sm">
         <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
           404
         </div>
@@ -15,7 +17,10 @@ export function NotFoundPage() {
           The page you’re looking for doesn’t exist or has moved.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Link to="/" className={buttonClassName({ variant: 'primary', size: 'md' })}>
+          <Link
+            to="/"
+            className={buttonClassName({ variant: 'primary', size: 'md' })}
+          >
             Go to Home
           </Link>
           <Link
@@ -25,8 +30,8 @@ export function NotFoundPage() {
             Contact
           </Link>
         </div>
-      </div>
-    </div>
+      </Card>
+    </Section>
   )
 }
 

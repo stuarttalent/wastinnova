@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import { PageHeader } from '../components/layout/PageHeader'
+import { Section } from '../components/layout/Section'
 import { Badge } from '../components/ui/Badge'
+import { Card } from '../components/ui/Card'
 import { buttonClassName } from '../components/ui/buttonStyles'
 
 const businessUnits = [
@@ -58,18 +61,12 @@ const businessUnits = [
 export function ServicesPage() {
   return (
     <div>
-      <section className="border-b border-slate-200 bg-slate-50/70">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-          <Badge tone="brand">Integrated business units</Badge>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-            Integrated services for compliant, low-risk operations
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-            Six service lines delivered under one governance model—designed to be
-            audit-ready, operationally disciplined, and transparent for corporate and
-            healthcare partners.
-          </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+      <PageHeader
+        badge={<Badge tone="brand">Integrated business units</Badge>}
+        title="Integrated services for compliant, low-risk operations"
+        subtitle="Six service lines delivered under one governance model—designed to be audit-ready, operationally disciplined, and transparent for corporate and healthcare partners."
+        actions={
+          <>
             <Link
               to="/contact?intent=credentials"
               className={buttonClassName({ variant: 'primary', size: 'lg' })}
@@ -82,18 +79,18 @@ export function ServicesPage() {
             >
               See compliance approach
             </Link>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <Section
+        eyebrow="Service coverage"
+        title="Six integrated units under one governance model"
+        subtitle="Delivered with traceability, SOP discipline, and reporting designed for executive clarity."
+      >
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {businessUnits.map((unit) => (
-              <div
-                key={unit.name}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft"
-              >
+              <Card key={unit.name} className="p-6">
                 <div className="flex items-start justify-between gap-3">
                   <div className="text-sm font-semibold tracking-tight text-slate-900">
                     {unit.name}
@@ -110,11 +107,11 @@ export function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
             ))}
           </div>
 
-          <div className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <Card className="mt-12 p-6 hover:translate-y-0 hover:shadow-apple-sm">
             <div className="text-sm font-semibold tracking-tight text-slate-900">
               Integrated delivery model
             </div>
@@ -137,9 +134,8 @@ export function ServicesPage() {
                 Talk to us about a programme
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
+          </Card>
+      </Section>
     </div>
   )
 }
