@@ -68,19 +68,15 @@ function FeatureCard({
   icon: ReactNode
 }) {
   return (
-    <Card className="p-6">
-      <div className="flex items-start gap-4">
-        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-100">
-          {icon}
-        </div>
-        <div>
-          <div className="text-sm font-semibold tracking-tight text-slate-900">
-            {title}
-          </div>
-          <div className="mt-2 text-sm leading-relaxed text-slate-600">
-            {description}
-          </div>
-        </div>
+    <Card className="p-6 hover:translate-y-0 hover:shadow-apple-sm">
+      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-100">
+        {icon}
+      </div>
+      <div className="mt-4 text-sm font-semibold tracking-tight text-slate-900">
+        {title}
+      </div>
+      <div className="mt-2 text-sm leading-relaxed text-slate-600">
+        {description}
       </div>
     </Card>
   )
@@ -109,21 +105,23 @@ function Icon({
 export function HomePage() {
   return (
     <div>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,100,48,0.10),transparent_60%)]" />
-        <div className="absolute inset-y-0 right-0 hidden w-[45%] bg-[linear-gradient(to_left,rgba(2,6,23,0.03),transparent)] md:block" />
+      <section>
+        <Container className="py-16 sm:py-20">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="flex items-center justify-center gap-2">
+              <Badge tone="brand">WASTiNNOVA Africa</Badge>
+              <span className="text-sm text-slate-500">Zimbabwe</span>
+            </div>
 
-        <Container className="relative grid items-center gap-10 py-16 sm:py-20 md:grid-cols-2">
-          <div className="animate-fade-up space-y-6">
-            <Badge tone="brand">Safety first. Compliance by design.</Badge>
-            <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+            <h1 className="mt-5 text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
               Engineering Safety. Delivering Compliance. Innovating Sustainably.
             </h1>
-            <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
               Africa’s benchmark corporate partner for compliant waste, sterilisation,
               and environmental solutions.
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:items-center">
               <Link
                 to="/contact?intent=credentials"
                 className={buttonClassName({ variant: 'primary', size: 'lg' })}
@@ -137,28 +135,27 @@ export function HomePage() {
                 Explore WASTiTRACK
               </Link>
             </div>
-
-            <div className="grid gap-3 pt-4 sm:grid-cols-2">
-              <Card className="rounded-2xl p-4">
-                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  Operating model
-                </div>
-                <div className="mt-2 text-sm font-medium text-slate-900">
-                  Always audit-ready, SOP-driven operations
-                </div>
-              </Card>
-              <Card className="rounded-2xl p-4">
-                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  Partner promise
-                </div>
-                <div className="mt-2 text-sm font-medium text-slate-900">
-                  Long-term governance, not transactional supply
-                </div>
-              </Card>
-            </div>
           </div>
 
-          <div className="animate-fade-up grid gap-4 [animation-delay:80ms]">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <FeatureCard
+              title="Document & SOP control"
+              description="Centralize compliance evidence: SOPs, manifests, training records, and reporting—structured for review."
+              icon={<Icon d="M9 5h6m-6 4h6m-6 4h6M7 3h10a2 2 0 012 2v16l-4-3-4 3-4-3-4 3V5a2 2 0 012-2z" />}
+            />
+            <FeatureCard
+              title="Training & readiness"
+              description="Audits, SOP adoption, and staff enablement designed for healthcare environments and multi-site rollouts."
+              icon={<Icon d="M12 14l9-5-9-5-9 5 9 5zM12 14l6.5-3.6M12 14v7" />}
+            />
+            <FeatureCard
+              title="Real-time traceability"
+              description="WASTiTRACK digital manifests, GPS visibility, and exportable audit trails—always audit-ready by design."
+              icon={<Icon d="M4 7h16M4 12h10M4 17h16" />}
+            />
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
             <Card className="p-6">
               <div className="flex items-center justify-between gap-3">
                 <div>
@@ -181,7 +178,10 @@ export function HomePage() {
                   ['SOP coverage', 'Validated', 'bg-slate-50 text-slate-800'],
                   ['Exceptions', '0 pending', 'bg-safety-50 text-safety-900'],
                 ].map(([k, v, tone]) => (
-                  <div key={k} className="rounded-2xl border border-slate-200/80 bg-white p-4">
+                  <div
+                    key={k}
+                    className="rounded-2xl border border-slate-200/80 bg-white p-4"
+                  >
                     <div className="text-xs font-medium text-slate-500">{k}</div>
                     <div className="mt-2 flex items-center justify-between">
                       <div className="text-sm font-semibold text-slate-900">{v}</div>
@@ -196,26 +196,6 @@ export function HomePage() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-4 rounded-2xl bg-slate-50 p-4 ring-1 ring-inset ring-slate-200">
-                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  Compliance view
-                </div>
-                <div className="mt-2 grid gap-2 text-sm text-slate-700">
-                  <div className="flex items-center justify-between">
-                    <span>Chain-of-custody</span>
-                    <span className="font-medium text-brand-700">Complete</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Retention policy</span>
-                    <span className="font-medium text-brand-700">Enforced</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Incident logging</span>
-                    <span className="font-medium text-brand-700">Enabled</span>
-                  </div>
-                </div>
               </div>
             </Card>
 
@@ -245,7 +225,9 @@ export function HomePage() {
                     className="rounded-2xl bg-slate-50 p-4 ring-1 ring-inset ring-slate-200"
                   >
                     <div className="text-xs font-medium text-slate-500">{k}</div>
-                    <div className="mt-2 text-sm font-semibold text-slate-900">{v}</div>
+                    <div className="mt-2 text-sm font-semibold text-slate-900">
+                      {v}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -259,6 +241,30 @@ export function HomePage() {
                   modular incineration units, and in-field healthcare environments
                   (avoid generic stock).
                 </div>
+              </div>
+            </Card>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-3xl">
+            <Card
+              tone="muted"
+              className="p-5 hover:translate-y-0 hover:shadow-apple-sm"
+            >
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                    Core philosophy
+                  </div>
+                  <div className="mt-1 text-sm font-semibold text-slate-900">
+                    Safety first. Compliance by design. Innovation with purpose.
+                  </div>
+                </div>
+                <Link
+                  to="/compliance"
+                  className={buttonClassName({ variant: 'outline', size: 'sm' })}
+                >
+                  View compliance approach
+                </Link>
               </div>
             </Card>
           </div>
