@@ -138,214 +138,8 @@ export function HomePage() {
               </Link>
             </div>
           </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <FeatureCard
-              title="Document & SOP control"
-              description="Centralize compliance evidence: SOPs, manifests, training records, and reporting—structured for review."
-              icon={<Icon d="M9 5h6m-6 4h6m-6 4h6M7 3h10a2 2 0 012 2v16l-4-3-4 3-4-3-4 3V5a2 2 0 012-2z" />}
-            />
-            <FeatureCard
-              title="Training & readiness"
-              description="Audits, SOP adoption, and staff enablement designed for healthcare environments and multi-site rollouts."
-              icon={<Icon d="M12 14l9-5-9-5-9 5 9 5zM12 14l6.5-3.6M12 14v7" />}
-            />
-            <FeatureCard
-              title="Real-time traceability"
-              description="WASTiTRACK digital manifests, GPS visibility, and exportable audit trails—always audit-ready by design."
-              icon={<Icon d="M4 7h16M4 12h10M4 17h16" />}
-            />
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <Card className="p-6">
-              <Media
-                src={media.dashboard.src}
-                alt={media.dashboard.alt}
-                className="mb-5 aspect-[16/10]"
-                priority
-              />
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                    WASTiTRACK
-                  </div>
-                  <div className="mt-1 text-sm font-semibold tracking-tight text-slate-900">
-                    Digital compliance dashboard
-                  </div>
-                </div>
-                <Badge tone="brand" className="shrink-0">
-                  Audit trail
-                </Badge>
-              </div>
-
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                {[
-                  ['Manifests', 'Up to date', 'bg-brand-50 text-brand-800'],
-                  ['GPS tracking', 'Active', 'bg-brand-50 text-brand-800'],
-                  ['SOP coverage', 'Validated', 'bg-slate-50 text-slate-800'],
-                  ['Exceptions', '0 pending', 'bg-safety-50 text-safety-900'],
-                ].map(([k, v, tone]) => (
-                  <div
-                    key={k}
-                    className="rounded-2xl border border-slate-200/80 bg-white p-4"
-                  >
-                    <div className="text-xs font-medium text-slate-500">{k}</div>
-                    <div className="mt-2 flex items-center justify-between">
-                      <div className="text-sm font-semibold text-slate-900">{v}</div>
-                      <span
-                        className={cn(
-                          'rounded-full px-2 py-1 text-[11px] font-medium',
-                          tone,
-                        )}
-                      >
-                        Status
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Card>
-
-            <Card className="p-6">
-              <Media
-                src={media.controlledFacility.src}
-                alt={media.controlledFacility.alt}
-                className="mb-5 aspect-[16/10]"
-              />
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                    Infrastructure
-                  </div>
-                  <div className="mt-1 text-sm font-semibold tracking-tight text-slate-900">
-                    Controlled treatment infrastructure
-                  </div>
-                </div>
-                <Badge tone="safety" className="shrink-0">
-                  Safety
-                </Badge>
-              </div>
-
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                {[
-                  ['Low-resource design', 'Serviceable'],
-                  ['Maintenance-ready', 'Planned'],
-                  ['Controls', 'Documented'],
-                ].map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="rounded-2xl bg-slate-50 p-4 ring-1 ring-inset ring-slate-200"
-                  >
-                    <div className="text-xs font-medium text-slate-500">{k}</div>
-                    <div className="mt-2 text-sm font-semibold text-slate-900">
-                      {v}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-4 rounded-2xl border border-dashed border-slate-300 bg-white p-4">
-                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  Note
-                </div>
-                <div className="mt-2 text-sm leading-relaxed text-slate-600">
-                  Stock imagery used for layout only. Replace with real project
-                  photography (controlled handling, modular units, and field operations)
-                  for maximum credibility.
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-3xl">
-            <Card
-              tone="muted"
-              className="p-5 hover:translate-y-0 hover:shadow-apple-sm"
-            >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                    Core philosophy
-                  </div>
-                  <div className="mt-1 text-sm font-semibold text-slate-900">
-                    Safety first. Compliance by design. Innovation with purpose.
-                  </div>
-                </div>
-                <Link
-                  to="/compliance"
-                  className={buttonClassName({ variant: 'outline', size: 'sm' })}
-                >
-                  View compliance approach
-                </Link>
-              </div>
-            </Card>
-          </div>
         </Container>
       </section>
-
-      <Section
-        id="overview"
-        eyebrow="Corporate overview"
-        title="A governance-led partner for environmental and healthcare outcomes"
-        subtitle="WASTiNNOVA Africa is a professionally managed environmental and healthcare services company delivering technology-enabled, compliance-driven solutions across medical waste, sterilisation, compliance, and circular manufacturing."
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          <FeatureCard
-            title="Professionally managed operations"
-            description="Structured delivery, clear accountability, and documentation designed for regulators, hospitals, and international partners."
-            icon={<Icon d="M12 3l8 4v6c0 5-3.2 9.4-8 11-4.8-1.6-8-6-8-11V7l8-4z" />}
-          />
-          <FeatureCard
-            title="Compliance-first execution"
-            description="WHO-aligned practices and national regulatory readiness built into processes—not added at the end."
-            icon={<Icon d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />}
-          />
-          <FeatureCard
-            title="Long-term partnership"
-            description="We operate as a strategic partner with measurable governance and service maturity—reducing risk and improving outcomes."
-            icon={<Icon d="M16 11V7a4 4 0 00-8 0v4M7 11h10v10H7V11z" />}
-          />
-        </div>
-      </Section>
-
-      <Section
-        id="purpose"
-        tone="muted"
-        eyebrow="Purpose & value"
-        title="Clarity of purpose. Practical value."
-        subtitle="Safety first. Compliance by design. Innovation with purpose."
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          <Card className="p-6">
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Vision
-            </div>
-            <div className="mt-3 text-lg font-semibold tracking-tight text-slate-900">
-              A waste service seamlessly integrated into society.
-            </div>
-          </Card>
-          <Card className="p-6">
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Mission
-            </div>
-            <div className="mt-3 text-lg font-semibold tracking-tight text-slate-900">
-              To simplify lives and save the world.
-            </div>
-          </Card>
-          <Card className="p-6">
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Value proposition
-            </div>
-            <div className="mt-3 text-sm leading-relaxed text-slate-600">
-              We create smart and effective ways to manage waste. With advanced
-              digital technologies and a wide range of integrated services, we
-              make waste management simple, reliable, and hassle-free for our
-              partners.
-            </div>
-          </Card>
-        </div>
-      </Section>
 
       <Section
         id="services"
@@ -388,11 +182,218 @@ export function HomePage() {
             Need a combined programme across multiple sites?
           </div>
           <Link
-            to="/contact?intent=credentials"
+            to="/contact"
             className={buttonClassName({ variant: 'outline', size: 'md' })}
           >
             Request an integrated proposal
           </Link>
+        </div>
+      </Section>
+
+      <Section
+        id="purpose"
+        tone="muted"
+        eyebrow="Purpose & value"
+        title="Clarity of purpose. Practical value."
+        subtitle="Safety first. Compliance by design. Innovation with purpose."
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          <Card className="p-6">
+            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Vision
+            </div>
+            <div className="mt-3 text-lg font-semibold tracking-tight text-slate-900">
+              A waste service seamlessly integrated into society.
+            </div>
+          </Card>
+          <Card className="p-6">
+            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Mission
+            </div>
+            <div className="mt-3 text-lg font-semibold tracking-tight text-slate-900">
+              To simplify lives and save the world.
+            </div>
+          </Card>
+          <Card className="p-6">
+            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Value proposition
+            </div>
+            <div className="mt-3 text-sm leading-relaxed text-slate-600">
+              We create smart and effective ways to manage waste. With advanced
+              digital technologies and a wide range of integrated services, we
+              make waste management simple, reliable, and hassle-free for our
+              partners.
+            </div>
+          </Card>
+        </div>
+      </Section>
+
+      <Section
+        id="overview"
+        eyebrow="Corporate overview"
+        title="A governance-led partner for environmental and healthcare outcomes"
+        subtitle="WASTiNNOVA Africa is a professionally managed environmental and healthcare services company delivering technology-enabled, compliance-driven solutions across medical waste, sterilisation, compliance, and circular manufacturing."
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          <FeatureCard
+            title="Professionally managed operations"
+            description="Structured delivery, clear accountability, and documentation designed for regulators, hospitals, and international partners."
+            icon={<Icon d="M12 3l8 4v6c0 5-3.2 9.4-8 11-4.8-1.6-8-6-8-11V7l8-4z" />}
+          />
+          <FeatureCard
+            title="Compliance-first execution"
+            description="WHO-aligned practices and national regulatory readiness built into processes—not added at the end."
+            icon={<Icon d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />}
+          />
+          <FeatureCard
+            title="Long-term partnership"
+            description="We operate as a strategic partner with measurable governance and service maturity—reducing risk and improving outcomes."
+            icon={<Icon d="M16 11V7a4 4 0 00-8 0v4M7 11h10v10H7V11z" />}
+          />
+        </div>
+      </Section>
+
+      <Section
+        tone="muted"
+        eyebrow="Operational snapshot"
+        title="Compliance execution, made visible"
+        subtitle="A practical snapshot of how documentation, training, and traceability come together in day-to-day delivery."
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          <FeatureCard
+            title="Document & SOP control"
+            description="Centralize compliance evidence: SOPs, manifests, training records, and reporting—structured for review."
+            icon={<Icon d="M9 5h6m-6 4h6m-6 4h6M7 3h10a2 2 0 012 2v16l-4-3-4 3-4-3-4 3V5a2 2 0 012-2z" />}
+          />
+          <FeatureCard
+            title="Training & readiness"
+            description="Audits, SOP adoption, and staff enablement designed for healthcare environments and multi-site rollouts."
+            icon={<Icon d="M12 14l9-5-9-5-9 5 9 5zM12 14l6.5-3.6M12 14v7" />}
+          />
+          <FeatureCard
+            title="Real-time traceability"
+            description="WASTiTRACK digital manifests, GPS visibility, and exportable audit trails—always audit-ready by design."
+            icon={<Icon d="M4 7h16M4 12h10M4 17h16" />}
+          />
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <Card className="p-6">
+            <Media
+              src={media.dashboard.src}
+              alt={media.dashboard.alt}
+              className="mb-5 aspect-[16/10]"
+              priority
+            />
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  WASTiTRACK
+                </div>
+                <div className="mt-1 text-sm font-semibold tracking-tight text-slate-900">
+                  Digital compliance dashboard
+                </div>
+              </div>
+              <Badge tone="brand" className="shrink-0">
+                Audit trail
+              </Badge>
+            </div>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {[
+                ['Manifests', 'Up to date', 'bg-brand-50 text-brand-800'],
+                ['GPS tracking', 'Active', 'bg-brand-50 text-brand-800'],
+                ['SOP coverage', 'Validated', 'bg-slate-50 text-slate-800'],
+                ['Exceptions', '0 pending', 'bg-safety-50 text-safety-900'],
+              ].map(([k, v, tone]) => (
+                <div
+                  key={k}
+                  className="rounded-2xl border border-slate-200/80 bg-white p-4"
+                >
+                  <div className="text-xs font-medium text-slate-500">{k}</div>
+                  <div className="mt-2 flex items-center justify-between">
+                    <div className="text-sm font-semibold text-slate-900">{v}</div>
+                    <span
+                      className={cn(
+                        'rounded-full px-2 py-1 text-[11px] font-medium',
+                        tone,
+                      )}
+                    >
+                      Status
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          <Card className="p-6">
+            <Media
+              src={media.controlledFacility.src}
+              alt={media.controlledFacility.alt}
+              className="mb-5 aspect-[16/10]"
+            />
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  Infrastructure
+                </div>
+                <div className="mt-1 text-sm font-semibold tracking-tight text-slate-900">
+                  Controlled treatment infrastructure
+                </div>
+              </div>
+              <Badge tone="safety" className="shrink-0">
+                Safety
+              </Badge>
+            </div>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              {[
+                ['Low-resource design', 'Serviceable'],
+                ['Maintenance-ready', 'Planned'],
+                ['Controls', 'Documented'],
+              ].map(([k, v]) => (
+                <div
+                  key={k}
+                  className="rounded-2xl bg-slate-50 p-4 ring-1 ring-inset ring-slate-200"
+                >
+                  <div className="text-xs font-medium text-slate-500">{k}</div>
+                  <div className="mt-2 text-sm font-semibold text-slate-900">{v}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 rounded-2xl border border-dashed border-slate-300 bg-white p-4">
+              <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Note
+              </div>
+              <div className="mt-2 text-sm leading-relaxed text-slate-600">
+                Stock imagery used for layout only. Replace with real project
+                photography for maximum credibility.
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-3xl">
+          <Card tone="muted" className="p-5 hover:translate-y-0 hover:shadow-apple-sm">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  Core philosophy
+                </div>
+                <div className="mt-1 text-sm font-semibold text-slate-900">
+                  Safety first. Compliance by design. Innovation with purpose.
+                </div>
+              </div>
+              <Link
+                to="/compliance"
+                className={buttonClassName({ variant: 'outline', size: 'sm' })}
+              >
+                View compliance approach
+              </Link>
+            </div>
+          </Card>
         </div>
       </Section>
 
