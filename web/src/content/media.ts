@@ -15,27 +15,27 @@ export const media = {
   },
   gps: {
     // Car dashboard map display (stock)
-    src: 'https://source.unsplash.com/EdjqbuY-CH4/1600x1000',
+    src: 'https://unsplash.com/photos/EdjqbuY-CH4/download?force=true',
     alt: 'Navigation map display representing GPS visibility',
   },
   controlledFacility: {
     // Industrial facility (stock) — stand-in for controlled treatment infrastructure
-    src: 'https://source.unsplash.com/23BRp1we8n0/1600x1000',
+    src: 'https://unsplash.com/photos/23BRp1we8n0/download?force=true',
     alt: 'Industrial facility representing controlled treatment infrastructure',
   },
   healthcare: {
     // Free nurse image (stock) — stand-in for healthcare environments
-    src: 'https://source.unsplash.com/ZRBC7e3mq_g/1600x1000',
+    src: 'https://unsplash.com/photos/ZRBC7e3mq_g/download?force=true',
     alt: 'Healthcare professional representing clinical environments',
   },
   sterilisation: {
     // Sterile instruments / decontamination equipment (stock)
-    src: 'https://source.unsplash.com/1506E0wIoAU/1600x1000',
+    src: 'https://unsplash.com/photos/1506E0wIoAU/download?force=true',
     alt: 'Sterilisation equipment representing validated protocols',
   },
   recycling: {
     // Tires (stock) — stand-in for rubber recovery workflows
-    src: 'https://source.unsplash.com/KEaZffWNhyM/1600x1000',
+    src: 'https://unsplash.com/photos/KEaZffWNhyM/download?force=true',
     alt: 'Recovered tires representing circular economy inputs',
   },
 } satisfies Record<string, MediaAsset>
