@@ -53,6 +53,74 @@ export function CompliancePage() {
       />
 
       <Section
+        tone="muted"
+        eyebrow="Preview"
+        title="CWPS Medical Waste Compliance Program — Pre-Registration"
+        subtitle="A centralized compliance, documentation, and training platform designed for healthcare facilities."
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          <Card className="p-6 lg:col-span-2 hover:translate-y-0 hover:shadow-apple-sm">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  External portal
+                </div>
+                <div className="mt-1 text-sm font-semibold tracking-tight text-slate-900">
+                  reg.cwpsafety.org
+                </div>
+              </div>
+              <a
+                href="https://reg.cwpsafety.org/"
+                target="_blank"
+                rel="noreferrer"
+                className={buttonClassName({ variant: 'primary', size: 'md' })}
+              >
+                Open portal
+              </a>
+            </div>
+
+            <div className="mt-5 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
+              {[
+                'Reduce risk and prevent compliance-related shutdowns',
+                'Centralize documentation and audit readiness',
+                'Support certified training and inspection readiness',
+                'Designed for clinics, labs, pharmacies, and hospitals',
+              ].map((item) => (
+                <div key={item} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          <Card
+            tone="muted"
+            className="p-6 hover:translate-y-0 hover:shadow-apple-sm"
+          >
+            <div className="text-sm font-semibold tracking-tight text-slate-900">
+              Why this matters
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              Regulators and hospital executives expect documented controls. This
+              portal is a strong reference for the “compliance made simple” operating
+              standard we align with.
+            </p>
+            <div className="mt-4">
+              <a
+                href="https://reg.cwpsafety.org/"
+                target="_blank"
+                rel="noreferrer"
+                className={buttonClassName({ variant: 'outline', size: 'md' })}
+              >
+                Preview pre-registration
+              </a>
+            </div>
+          </Card>
+        </div>
+      </Section>
+
+      <Section
         eyebrow="Built-in compliance"
         title="Standards, documentation, and traceability—operationalised"
         subtitle="A compliance posture designed for healthcare environments, procurement diligence, and regulator review."
@@ -143,74 +211,6 @@ export function CompliancePage() {
               </div>
             </Card>
           </div>
-      </Section>
-
-      <Section
-        tone="muted"
-        eyebrow="Preview"
-        title="CWPS Medical Waste Compliance Program — Pre-Registration"
-        subtitle="A centralized compliance, documentation, and training platform designed for healthcare facilities."
-      >
-        <div className="grid gap-6 lg:grid-cols-3">
-          <Card className="p-6 lg:col-span-2 hover:translate-y-0 hover:shadow-apple-sm">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  External portal
-                </div>
-                <div className="mt-1 text-sm font-semibold tracking-tight text-slate-900">
-                  reg.cwpsafety.org
-                </div>
-              </div>
-              <a
-                href="https://reg.cwpsafety.org/"
-                target="_blank"
-                rel="noreferrer"
-                className={buttonClassName({ variant: 'primary', size: 'md' })}
-              >
-                Open portal
-              </a>
-            </div>
-
-            <div className="mt-5 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
-              {[
-                'Reduce risk and prevent compliance-related shutdowns',
-                'Centralize documentation and audit readiness',
-                'Support certified training and inspection readiness',
-                'Designed for clinics, labs, pharmacies, and hospitals',
-              ].map((item) => (
-                <div key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </Card>
-
-          <Card
-            tone="muted"
-            className="p-6 hover:translate-y-0 hover:shadow-apple-sm"
-          >
-            <div className="text-sm font-semibold tracking-tight text-slate-900">
-              Why this matters
-            </div>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              Regulators and hospital executives expect documented controls. This
-              portal is a strong reference for the “compliance made simple” operating
-              standard we align with.
-            </p>
-            <div className="mt-4">
-              <a
-                href="https://reg.cwpsafety.org/"
-                target="_blank"
-                rel="noreferrer"
-                className={buttonClassName({ variant: 'outline', size: 'md' })}
-              >
-                Preview pre-registration
-              </a>
-            </div>
-          </Card>
-        </div>
       </Section>
     </div>
   )
