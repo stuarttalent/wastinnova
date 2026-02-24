@@ -116,7 +116,7 @@ export function HomePage() {
             </div>
 
             <h1 className="mt-5 text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-              Engineering Safety. Delivering Compliance. Innovating Sustainably.
+              Waste service that is seamlessly integrated into society
             </h1>
             <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
               Africa’s benchmark corporate partner for compliant waste, sterilisation,
@@ -125,10 +125,10 @@ export function HomePage() {
 
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:items-center">
               <Link
-                to="/contact?intent=credentials"
+                to="/contact"
                 className={buttonClassName({ variant: 'primary', size: 'lg' })}
               >
-                Request Corporate Credentials & References
+                Contact Us
               </Link>
               <Link
                 to="/technology"
