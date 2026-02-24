@@ -57,10 +57,10 @@ export function SiteHeader() {
               </NavLink>
             ))}
             <Link
-              to="/contact?intent=credentials"
+              to="/contact"
               className={buttonClassName({ variant: 'primary', size: 'sm' })}
             >
-              Request Credentials
+              Contact Us
             </Link>
           </nav>
 
@@ -119,10 +119,10 @@ export function SiteHeader() {
                 ))}
 
                 <Link
-                  to="/contact?intent=credentials"
+                  to="/contact"
                   className={buttonClassName({ variant: 'primary', size: 'md' })}
                 >
-                  Request Corporate Credentials & References
+                  Contact Us
                 </Link>
               </div>
             </Container>
